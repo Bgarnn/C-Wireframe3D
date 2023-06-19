@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   map_read_stack.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kaburale <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/19 17:27:57 by kaburale          #+#    #+#             */
+/*   Updated: 2023/06/19 17:27:59 by kaburale         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fdf.h"
 
 static t_node_z	*stack_new(char *str)
@@ -9,8 +21,11 @@ static t_node_z	*stack_new(char *str)
 	if (!new)
 		exit_error(NEW_STACK_ERROR);
 	tmp_z = ft_split(str, ',');
-	if ((!tmp_z) || (!ft_isvalid(tmp_z[0], 10)) || (tmp_z[1] && !ft_isvalid(tmp_z[1], 16)))
+	if ((!tmp_z) || (!ft_isvalid(tmp_z[0], 10))
+		|| (tmp_z[1] && !ft_isvalid(tmp_z[1], 16)))
+	{
 		exit_error(NEW_STACK_ERROR);
+	}
 	new->z = ft_atoi(tmp_z[0]);
 	if (tmp_z[1] != NULL )
 		new->color = ft_atoi_base(tmp_z[1], 16);
@@ -56,8 +71,8 @@ int	map_read_stack(t_node_z **stack, t_map *map, int fd)
 	while (1)
 	{
 		line = get_next_line(fd);
-		if(!line)
-			break;
+		if (!line)
+			break ;
 		line_split = ft_split(line, ' ');
 		if (!line_split)
 			exit_error(LINE_SPLIT_ERROR);
@@ -70,4 +85,3 @@ int	map_read_stack(t_node_z **stack, t_map *map, int fd)
 		exit_error(READ_STACK_ERROR);
 	return (0);
 }
-

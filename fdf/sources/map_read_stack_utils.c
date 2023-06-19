@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   map_read_stack_utils.c                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kaburale <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/19 17:34:36 by kaburale          #+#    #+#             */
+/*   Updated: 2023/06/19 17:34:39 by kaburale         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fdf.h"
 
 static int	ft_upper(int c)
@@ -24,7 +36,7 @@ static int	ft_value(char c, int base_num)
 	char	*base_char;
 	int		i;
 
-	base_char= "0123456789ABCDEF";
+	base_char = "0123456789ABCDEF";
 	i = 0;
 	while (i < base_num)
 	{
@@ -42,9 +54,11 @@ int	ft_isvalid(char *str, int base_num)
 
 	i = 0;
 	digit = 0;
-	while ((str[i] == ' ') || (str[i] == '\n') || (str[i] == '\t') || (str[i] == '\v')
-		|| (str[i] == '\f') || (str[i] == '\r'))
+	while ((str[i] == ' ') || (str[i] == '\n') || (str[i] == '\t')
+		|| (str[i] == '\v') || (str[i] == '\f') || (str[i] == '\r'))
+	{
 		i++;
+	}
 	if ((base_num != 10) && !(ft_prefix(&str[i], base_num)))
 		return (0);
 	if ((base_num == 2) || (base_num == 16))
@@ -69,9 +83,11 @@ int	ft_atoi_base(char *str, int base_num)
 
 	result = 0;
 	i = 0;
-	while ((str[i] == ' ') || (str[i] == '\n') || (str[i] == '\t') || (str[i] == '\v')
-		|| (str[i] == '\f') || (str[i] == '\r'))
+	while ((str[i] == ' ') || (str[i] == '\n') || (str[i] == '\t')
+		|| (str[i] == '\v') || (str[i] == '\f') || (str[i] == '\r'))
+	{
 		i++;
+	}
 	if (ft_prefix(&str[i], base_num) == 0)
 		return (0);
 	i = i + 2;

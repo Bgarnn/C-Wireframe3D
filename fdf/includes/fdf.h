@@ -1,9 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fdf.h                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kaburale <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/19 17:49:57 by kaburale          #+#    #+#             */
+/*   Updated: 2023/06/19 17:50:13 by kaburale         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FDF_H
 # define FDF_H
 
 # include <stdlib.h>
 # include <errno.h>
 # include <fcntl.h>
+# include <stdio.h>
 # include "mlx.h"
 # include "error.h"
 # include "libft.h"

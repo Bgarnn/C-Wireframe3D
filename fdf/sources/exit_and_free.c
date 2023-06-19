@@ -1,9 +1,16 @@
-#include "fdf.h"
-#include "libft.h"
-#include <errno.h>
-#include <stdio.h>
-#include <stdlib.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   exit_and_free.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kaburale <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/19 16:35:44 by kaburale          #+#    #+#             */
+/*   Updated: 2023/06/19 16:35:48 by kaburale         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
+#include "fdf.h"
 
 void	exit_error(char *str)
 {

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   map_read_array.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kaburale <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/19 17:26:11 by kaburale          #+#    #+#             */
+/*   Updated: 2023/06/19 17:26:14 by kaburale         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fdf.h"
 
 static t_node_z	*stack_pop(t_node_z **stack)
@@ -36,7 +48,7 @@ void	map_read_array(t_node_z **stack, t_map *map)
 			map->color_arr[i] = pop_node->color;
 		}
 		else
-			break;
+			break ;
 		i--;
 		free(pop_node);
 	}

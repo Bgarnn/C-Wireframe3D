@@ -15,12 +15,12 @@ static t_point	plot_xyz(t_point point, t_data *data)
 {
 	point.x *= data->map->scale;
 	point.y *= data->map->scale;
-	point.z *= data->map->scale / 2;
+	point.z *= data->map->scale / 4;
 	point.x -= (data->map->width * data->map->scale) / 2;
 	point.y -= (data->map->height * data->map->scale) / 2;
 	convert_iso(&point.x, &point.y, point.z);
 	point.x += WIDTH / 2;
-	point.y += (HEIGHT) / 2;
+	point.y += (HEIGHT + data->map->height * data->map->scale) / 2;
 	return (point);
 }
 

@@ -22,8 +22,8 @@
 # include "libft.h"
 # include "math.h"
 
-# define WIDTH		1920
-# define HEIGHT 	1080
+# define WIDTH		960
+# define HEIGHT 	540
 
 # define BG_COLOR	0x505050
 # define LINE_COLOR	0xFFFFFF

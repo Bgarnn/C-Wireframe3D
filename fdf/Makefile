@@ -26,18 +26,14 @@ MINILIBX_DIRECTORY = ./mlx/
 MINILBX_HEADER = $(MINILIBX_DIRECTORY)
 
 HEADERS_LIST = fdf.h error.h 
-# color.h
 HEADERS_DIRECTORY = ./includes/
 HEADERS = $(addprefix $(HEADER_DIRECTORY), $(HEADER_LIST))
 
 SOURCES_DIRECTORY = ./sources/
-SOURCES_LIST = 	fdf.c exit_and_free.c init.c map_read_stack.c map_read_stack_utils.c\
-				map_read_array.c mlx_open_close.c map_draw.c
+SOURCES_LIST = 	fdf.c exit_and_free.c map_init.c map_read_stack.c map_read_stack_utils.c\
+				map_read_array.c mlx_open_close.c map_draw.c map_draw_line.c\
+				map_draw_line_color.c 
 
-# base_checker.c controls.c controls_utils.c draw_map.c\
-# 				fdf.c fdf_utils.c get_color.c keyboard_event.c\
-# 				make_arr.c map_reader.c mouse_event.c plot_pixel.c\
-# 				set.c stack_reader.c menu.c
 SOURCES = $(addprefix $(SOURCES_DIRECTORY), $(SOURCES_LIST))
 
 OBJECTS_DIRECTORY = objects/

@@ -20,20 +20,13 @@
 # include "mlx.h"
 # include "error.h"
 # include "libft.h"
+# include "math.h"
 
-# define WIN_WIDTH	1920
-# define WIN_HEIGHT 1080
-# define IMG_WIDTH	1920
-# define IMG_HEIGHT 1080
+# define WIDTH		1920
+# define HEIGHT 	1080
 
-// # define FT_INT_MAX 2147483647
-// # define FT_INT_MIN -2147483648
-
-// typedef enum s_projection
-// {
-// 	ISO,
-// 	PARA
-// }						t_projection;
+# define BG_COLOR	0x505050
+# define LINE_COLOR	0xFFFFFF
 
 typedef struct s_point
 {
@@ -54,6 +47,7 @@ typedef struct s_map
 {
 	int					width;
 	int					height;
+	int					scale;
 	int					*z_arr;
 	int					*color_arr;
 }						t_map;
@@ -91,5 +85,7 @@ int		ft_isvalid(char *str, int base_num);
 void	map_read_array(t_node_z **stack, t_map *map);
 void	mlx_open(t_data *data);
 void	map_draw (t_map *map, t_data *data);
+void	draw_line(t_point p1, t_point p2, t_data *data);
+int		get_color(t_point cur, t_point start, t_point end, t_point distance);
 
 #endif

@@ -47,7 +47,7 @@ static int	ft_value(char c, int base_num)
 	return (-1);
 }
 
-int	ft_isvalid(char *str, int base_num)
+static int	ft_isvalid(char *str, int base_num)
 {
 	size_t	i;
 	size_t	digit;
@@ -76,7 +76,7 @@ int	ft_isvalid(char *str, int base_num)
 		return (0);
 }
 
-int	ft_atoi_base(char *str, int base_num)
+static int	ft_atoi_base(char *str, int base_num)
 {
 	unsigned long	result;
 	size_t			i;
@@ -98,3 +98,28 @@ int	ft_atoi_base(char *str, int base_num)
 	}
 	return ((int)(result));
 }
+
+t_node_z	*stack_new(char *str)
+{
+	t_node_z	*new;
+	char		**tmp_z;
+
+	new = (t_node_z *)malloczero(sizeof(t_node_z));
+	if (!new)
+		exit_error(NEW_STACK_ERROR);
+	tmp_z = ft_split(str, ',');
+	if ((!tmp_z) || (!ft_isvalid(tmp_z[0], 10))
+		|| (tmp_z[1] && !ft_isvalid(tmp_z[1], 16)))
+	{
+		exit_error(NEW_STACK_ERROR);
+	}
+	new->z = ft_atoi(tmp_z[0]);
+	if (tmp_z[1] != NULL )
+		new->color = ft_atoi_base(tmp_z[1], 16);
+	else
+		new->color = -1;
+	new->next = NULL;
+	free_split(tmp_z);
+	return (new);
+}
+

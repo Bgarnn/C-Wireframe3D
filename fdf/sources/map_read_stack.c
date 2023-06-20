@@ -12,28 +12,26 @@
 
 #include "fdf.h"
 
-static t_node_z	*stack_new(char *str)
+void	free_split(char **ptr)
 {
-	t_node_z	*new;
-	char		**tmp_z;
+	size_t	i;
 
-	new = (t_node_z *)malloczero(sizeof(t_node_z));
-	if (!new)
-		exit_error(NEW_STACK_ERROR);
-	tmp_z = ft_split(str, ',');
-	if ((!tmp_z) || (!ft_isvalid(tmp_z[0], 10))
-		|| (tmp_z[1] && !ft_isvalid(tmp_z[1], 16)))
+	i = 0;
+	while (ptr[i])
 	{
-		exit_error(NEW_STACK_ERROR);
+		free(ptr[i]);
+		i++;
 	}
-	new->z = ft_atoi(tmp_z[0]);
-	if (tmp_z[1] != NULL )
-		new->color = ft_atoi_base(tmp_z[1], 16);
-	else
-		new->color = -1;
-	new->next = NULL;
-	free_split(tmp_z);
-	return (new);
+	free(ptr);
+}
+
+static void	free_line(char **ptr)
+{
+	if (ptr != NULL && *ptr != NULL)
+	{
+		free(*ptr);
+		*ptr = NULL;
+	}
 }
 
 static void	stack_add(t_node_z **stack, t_node_z *new)

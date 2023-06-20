@@ -75,17 +75,15 @@ typedef struct s_data
 	t_mlx				mlx;
 }						t_data;
 
-void	exit_error(char *str);
-t_map	*map_init(t_map *map);
-int		map_read_stack(t_node_z **stack, t_map *map, int fd);
-void	free_split(char **ptr);
-void	free_line(char **ptr);
-int		ft_atoi_base(char *str, int base_num);
-int		ft_isvalid(char *str, int base_num);
-void	map_read_array(t_node_z **stack, t_map *map);
-void	mlx_open(t_data *data);
-void	map_draw (t_map *map, t_data *data);
-void	draw_line(t_point p1, t_point p2, t_data *data);
-int		get_color(t_point cur, t_point start, t_point end, t_point distance);
+void		exit_error(char *str);
+void		free_split(char **ptr);
+t_map		*map_init(t_map *map);
+int			map_read_stack(t_node_z **stack, t_map *map, int fd);
+t_node_z	*stack_new(char *str);
+void		map_read_array(t_node_z **stack, t_map *map);
+void		mlx_open(t_data *data);
+void		map_draw (t_map *map, t_data *data);
+void		draw_line(t_point p1, t_point p2, t_data *data);
+int			get_color(t_point cur, t_point start, t_point end, t_point distance);
 
 #endif

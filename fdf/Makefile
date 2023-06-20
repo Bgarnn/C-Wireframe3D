@@ -30,7 +30,7 @@ HEADERS_DIRECTORY = ./includes/
 HEADERS = $(addprefix $(HEADER_DIRECTORY), $(HEADER_LIST))
 
 SOURCES_DIRECTORY = ./sources/
-SOURCES_LIST = 	fdf.c exit_and_free.c map_init.c map_read_stack.c map_read_stack_utils.c\
+SOURCES_LIST = 	fdf.c map_init_exit.c map_read_stack.c map_read_stack_new.c\
 				map_read_array.c mlx_open_close.c map_draw.c map_draw_line.c\
 				map_draw_line_color.c 
 

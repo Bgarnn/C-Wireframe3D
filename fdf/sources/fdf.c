@@ -27,9 +27,9 @@ int	main(int ac, char *av[])
 	data.map = map_init(data.map);
 	map_read_stack(&data.stack, data.map, fd);
 	map_read_array(&data.stack, data.map);
+	mlx_open(&data);
 	return (0);
 }
-	// mlx_open(data);
 
 	// char	*all_line;
 

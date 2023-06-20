@@ -32,7 +32,7 @@ HEADERS = $(addprefix $(HEADER_DIRECTORY), $(HEADER_LIST))
 
 SOURCES_DIRECTORY = ./sources/
 SOURCES_LIST = 	fdf.c exit_and_free.c init.c map_read_stack.c map_read_stack_utils.c\
-				map_read_array.c
+				map_read_array.c mlx_open_close.c map_draw.c
 
 # base_checker.c controls.c controls_utils.c draw_map.c\
 # 				fdf.c fdf_utils.c get_color.c keyboard_event.c\

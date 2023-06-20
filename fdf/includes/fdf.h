@@ -21,8 +21,10 @@
 # include "error.h"
 # include "libft.h"
 
-# define WIDTH	1920
-# define HEIGHT 1080
+# define WIN_WIDTH	1920
+# define WIN_HEIGHT 1080
+# define IMG_WIDTH	1920
+# define IMG_HEIGHT 1080
 
 // # define FT_INT_MAX 2147483647
 // # define FT_INT_MIN -2147483648
@@ -56,11 +58,27 @@ typedef struct s_map
 	int					*color_arr;
 }						t_map;
 
+typedef struct s_img
+{
+	int					bits_per_pixel;
+	int					size_line;
+	int					endian;
+}						t_img;
+
+typedef struct s_mlx
+{
+	void				*mlx_ptr;
+	void				*win_ptr;
+	void				*img_ptr;
+	char				*img_data;
+}						t_mlx;
+
 typedef struct s_data
 {
 	t_map				*map;
 	t_node_z			*stack;
-
+	t_img				img;
+	t_mlx				mlx;
 }						t_data;
 
 void	exit_error(char *str);
@@ -71,5 +89,7 @@ void	free_line(char **ptr);
 int		ft_atoi_base(char *str, int base_num);
 int		ft_isvalid(char *str, int base_num);
 void	map_read_array(t_node_z **stack, t_map *map);
+void	mlx_open(t_data *data);
+void	map_draw (t_map *map, t_data *data);
 
 #endif

@@ -12,6 +12,19 @@
 
 #include "fdf.h"
 
+static void	malloc_check(int *arr)
+{
+	if (!arr)
+		exit_error(READ_ARRAY_ERROR);
+}
+
+static int	update_max(int pop, int max)
+{
+	if (pop > max)
+		return (pop);
+	return (max);
+}
+
 static t_node_z	*stack_pop(t_node_z **stack)
 {
 	t_node_z	*pop_node;
@@ -33,11 +46,9 @@ void	map_read_array(t_node_z **stack, t_map *map)
 
 	size = (map->width * map->height) * sizeof(int);
 	map->z_arr = (int *)malloczero(size);
-	if (!(map->z_arr))
-		exit_error(READ_ARRAY_ERROR);
+	malloc_check(map->z_arr);
 	map->color_arr = (int *)malloczero(size);
-	if (!(map->color_arr))
-		exit_error(READ_ARRAY_ERROR);
+	malloc_check(map->color_arr);
 	i = (map->width * map->height) - 1;
 	while (i >= 0)
 	{
@@ -46,6 +57,7 @@ void	map_read_array(t_node_z **stack, t_map *map)
 		{
 			map->z_arr[i] = pop_node->z;
 			map->color_arr[i] = pop_node->color;
+			map->z_max = update_max(pop_node->z, map->z_max);
 		}
 		else
 			break ;

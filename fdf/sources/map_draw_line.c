@@ -12,7 +12,7 @@
 
 #include "fdf.h"
 
-static int	absolute(int nb)
+int	absolute(int nb)
 {
 	if (nb < 0)
 		return (-nb);

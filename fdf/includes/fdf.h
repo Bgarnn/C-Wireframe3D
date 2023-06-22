@@ -25,8 +25,8 @@
 # define WIDTH		1920
 # define HEIGHT 	1080
 
-# define BG_COLOR	0x505050
-# define LINE_COLOR	0xFFFFFF
+# define BG_COLOR	0x30221D
+# define LINE_COLOR	0xF7F5BC
 
 typedef struct s_point
 {
@@ -48,6 +48,7 @@ typedef struct s_map
 	int					width;
 	int					height;
 	int					scale;
+	int					z_max;
 	int					*z_arr;
 	int					*color_arr;
 }						t_map;
@@ -86,5 +87,6 @@ void		map_draw(t_map *map, t_data *data);
 void		draw_line(t_point p1, t_point p2, t_data *data);
 int			get_color(t_point cur, t_point start, t_point end,
 				t_point distance);
+int			absolute(int nb);
 
 #endif

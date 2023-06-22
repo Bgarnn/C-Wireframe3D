@@ -16,6 +16,7 @@ static void	map_scale(t_data *data)
 {
 	int			a;
 	int			b;
+	int			z_abs;
 
 	a = WIDTH / data->map->width / 2;
 	b = HEIGHT / data->map->height / 2;
@@ -23,6 +24,9 @@ static void	map_scale(t_data *data)
 		data->map->scale = a;
 	else
 		data->map->scale = b;
+	z_abs = absolute(data->map->z_max);
+	if (z_abs >= (data->map->height /2))
+		data->map->scale = HEIGHT / data->map->z_max / 3;
 }
 
 static int	win_exit_cross(t_data *data)

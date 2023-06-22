@@ -82,8 +82,9 @@ int			map_read_stack(t_node_z **stack, t_map *map, int fd);
 t_node_z	*stack_new(char *str);
 void		map_read_array(t_node_z **stack, t_map *map);
 void		mlx_open(t_data *data);
-void		map_draw (t_map *map, t_data *data);
+void		map_draw(t_map *map, t_data *data);
 void		draw_line(t_point p1, t_point p2, t_data *data);
-int			get_color(t_point cur, t_point start, t_point end, t_point distance);
+int			get_color(t_point cur, t_point start, t_point end,
+				t_point distance);
 
 #endif

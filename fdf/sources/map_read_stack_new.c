@@ -12,13 +12,6 @@
 
 #include "fdf.h"
 
-static int	ft_upper(int c)
-{
-	if (c >= 'a' && c <= 'z')
-		return (c - 32);
-	return (c);
-}
-
 static int	ft_prefix(char *str, int base_num)
 {
 	int	i;
@@ -40,7 +33,7 @@ static int	ft_value(char c, int base_num)
 	i = 0;
 	while (i < base_num)
 	{
-		if ((base_char[i] == ft_upper(c)) || (base_char[i] == '\n'))
+		if ((base_char[i] == ft_toupper(c)) || (base_char[i] == '\n'))
 			return (i);
 		i++;
 	}
@@ -122,4 +115,3 @@ t_node_z	*stack_new(char *str)
 	free_split(tmp_z);
 	return (new);
 }
-

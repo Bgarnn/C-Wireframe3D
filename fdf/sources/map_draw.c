@@ -1,4 +1,16 @@
-# include "fdf.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   map_draw.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kaburale <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/22 09:59:21 by kaburale          #+#    #+#             */
+/*   Updated: 2023/06/22 09:59:24 by kaburale         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "fdf.h"
 
 static void	convert_iso(int *x, int *y, int z)
 {
@@ -15,7 +27,7 @@ static t_point	plot_xyz(t_point point, t_data *data)
 {
 	point.x *= data->map->scale;
 	point.y *= data->map->scale;
-	point.z *= data->map->scale / 4;
+	point.z *= data->map->scale;
 	point.x -= (data->map->width * data->map->scale) / 2;
 	point.y -= (data->map->height * data->map->scale) / 2;
 	convert_iso(&point.x, &point.y, point.z);
@@ -45,7 +57,8 @@ static void	get_background(t_data *data)
 	int		*bg_color;
 	size_t	i;
 
-	ft_bzero(data->mlx.img_data, (WIDTH * HEIGHT) * (data->img.bits_per_pixel / 8));
+	ft_bzero(data->mlx.img_data,
+		(WIDTH * HEIGHT) * (data->img.bits_per_pixel / 8));
 	bg_color = (int *)(data->mlx.img_data);
 	i = 0;
 	while (i < (WIDTH * HEIGHT))
@@ -55,8 +68,7 @@ static void	get_background(t_data *data)
 	}
 }
 
-
-void	map_draw (t_map *map, t_data *data)
+void	map_draw(t_map *map, t_data *data)
 {
 	int	x;
 	int	y;
@@ -78,5 +90,4 @@ void	map_draw (t_map *map, t_data *data)
 		}
 		y++;
 	}
-
 }

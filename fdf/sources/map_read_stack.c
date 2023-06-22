@@ -79,7 +79,6 @@ int	map_read_stack(t_node_z **stack, t_map *map, int fd)
 		free_line(&line);
 		map->height++;
 	}
-	stack = NULL;
 	if (!(*stack))
 		exit_error_free(READ_STACK_ERROR, map);
 	return (0);

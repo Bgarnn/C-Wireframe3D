@@ -16,16 +16,24 @@ static void	map_scale(t_data *data)
 {
 	int			a;
 	int			b;
+	int			height;
+	int			width;
 	int			z_abs;
 
-	a = WIDTH / data->map->width / 2;
-	b = HEIGHT / data->map->height / 2;
+	height = HEIGHT;
+	width = WIDTH;
+	if (HEIGHT < 1000)
+		height = 1000;
+	if (WIDTH < 1000)
+		width = 1000;
+	a = width / data->map->width / 2;
+	b = height / data->map->height / 2;
 	if (a < b)
 		data->map->scale = a;
 	else
 		data->map->scale = b;
 	z_abs = absolute(data->map->z_max);
-	if (z_abs >= (data->map->height /2))
+	if (z_abs >= (data->map->height / 2))
 		data->map->scale = HEIGHT / data->map->z_max / 3;
 }
 

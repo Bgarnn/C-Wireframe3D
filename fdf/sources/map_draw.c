@@ -32,7 +32,7 @@ static t_point	plot_xyz(t_point point, t_data *data)
 	point.y -= (data->map->height * data->map->scale) / 2;
 	convert_iso(&point.x, &point.y, point.z);
 	point.x += WIDTH / 2;
-	point.y += (HEIGHT + (data->map->height * data->map->scale / 2)) / 2;
+	point.y += HEIGHT / 2;
 	return (point);
 }
 

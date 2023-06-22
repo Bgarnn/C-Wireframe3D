@@ -30,18 +30,3 @@ int	main(int ac, char *av[])
 	mlx_open(&data);
 	return (0);
 }
-
-	// char	*all_line;
-
-	// all_line = "";
-	// while(all_line != NULL)
-	// { 
-	// 	all_line = get_next_line(fd);
-	// 	printf("%s$\n", all_line);
-	// }
-	// char	*line;
-	// char	**line_split;
-	// line = get_next_line(fd);
-	// line_split = ft_split(line, ' ');
-	// printf("%s$\n%s", line, line_split);		
-	// printf("w =%d, h =%d", data.map->width, data.map->height);

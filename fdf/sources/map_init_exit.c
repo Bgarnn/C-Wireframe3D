@@ -32,3 +32,35 @@ void	exit_error(char *str)
 		perror(str);
 	exit(1);
 }
+
+void	exit_error_free(char *str, t_map *map)
+{
+	if (map)
+	{
+		if (map->z_arr)
+			free(map->z_arr);
+		if (map->color_arr)
+			free(map->color_arr);
+		free(map);
+	}
+	exit_error(str);
+}
+
+void	exit_error_free_2(char *str, t_map *map, t_node_z *ptr)
+{
+	if (ptr)
+		free(ptr);
+	exit_error_free(str, map);
+}
+
+void	free_ptr(t_map *map)
+{
+	if (map)
+	{
+		if (map->z_arr)
+			free(map->z_arr);
+		if (map->color_arr)
+			free(map->color_arr);
+		free(map);
+	}
+}

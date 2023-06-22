@@ -24,6 +24,3 @@
 # define READ_ARRAY_ERROR	"Error: map_read(array) failed"
 
 #endif
-
-// # define TEST_ERROR	"Error: Here :("
-// printf("I'm here :)");

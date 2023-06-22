@@ -39,6 +39,7 @@ static void	map_scale(t_data *data)
 
 static int	win_exit_cross(t_data *data)
 {
+	free_ptr(data->map);
 	mlx_destroy_image (data->mlx.mlx_ptr, data->mlx.img_ptr);
 	mlx_destroy_window (data->mlx.mlx_ptr, data->mlx.win_ptr);
 	exit (0);
@@ -48,6 +49,7 @@ static int	win_exit_esc(int keycode, t_data *data)
 {
 	if (keycode == 53)
 	{
+		free_ptr(data->map);
 		mlx_destroy_image (data->mlx.mlx_ptr, data->mlx.img_ptr);
 		mlx_destroy_window (data->mlx.mlx_ptr, data->mlx.win_ptr);
 		exit (0);

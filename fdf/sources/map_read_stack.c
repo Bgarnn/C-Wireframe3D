@@ -51,14 +51,14 @@ static void	line_to_stack(char **line_split, t_node_z **stack, t_map *map)
 	tmp_width = 0;
 	while (*line_split)
 	{
-		stack_add(stack, stack_new(*(line_split)));
+		stack_add(stack, (stack_new(*(line_split), map)));
 		tmp_width++;
 		line_split++;
 	}
 	if (map->height == 0)
 		map->width = tmp_width;
 	else if (map->width != tmp_width)
-		exit_error(SIZE_ERROR);
+		exit_error_free(SIZE_ERROR, map);
 }
 
 int	map_read_stack(t_node_z **stack, t_map *map, int fd)
@@ -73,13 +73,14 @@ int	map_read_stack(t_node_z **stack, t_map *map, int fd)
 			break ;
 		line_split = ft_split(line, ' ');
 		if (!line_split)
-			exit_error(LINE_SPLIT_ERROR);
+			exit_error_free(LINE_SPLIT_ERROR, map);
 		line_to_stack(line_split, stack, map);
 		free_split(line_split);
 		free_line(&line);
 		map->height++;
 	}
+	stack = NULL;
 	if (!(*stack))
-		exit_error(READ_STACK_ERROR);
+		exit_error_free(READ_STACK_ERROR, map);
 	return (0);
 }

@@ -92,19 +92,19 @@ static int	ft_atoi_base(char *str, int base_num)
 	return ((int)(result));
 }
 
-t_node_z	*stack_new(char *str)
+t_node_z	*stack_new(char *str, t_map *map)
 {
 	t_node_z	*new;
 	char		**tmp_z;
 
 	new = (t_node_z *)malloczero(sizeof(t_node_z));
 	if (!new)
-		exit_error(NEW_STACK_ERROR);
+		exit_error_free(NEW_STACK_ERROR, map);
 	tmp_z = ft_split(str, ',');
 	if ((!tmp_z) || (!ft_isvalid(tmp_z[0], 10))
 		|| (tmp_z[1] && !ft_isvalid(tmp_z[1], 16)))
 	{
-		exit_error(NEW_STACK_ERROR);
+		exit_error_free_2(NEW_STACK_ERROR, map, new);
 	}
 	new->z = ft_atoi(tmp_z[0]);
 	if (tmp_z[1] != NULL )

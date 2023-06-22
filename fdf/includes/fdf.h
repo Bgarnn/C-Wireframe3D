@@ -76,11 +76,14 @@ typedef struct s_data
 	t_mlx				mlx;
 }						t_data;
 
-void		exit_error(char *str);
 void		free_split(char **ptr);
+void		free_ptr(t_map *map);
+void		exit_error(char *str);
+void		exit_error_free(char *str, t_map *map);
+void		exit_error_free_2(char *str, t_map *map, t_node_z *ptr);
 t_map		*map_init(t_map *map);
 int			map_read_stack(t_node_z **stack, t_map *map, int fd);
-t_node_z	*stack_new(char *str);
+t_node_z	*stack_new(char *str, t_map *map);
 void		map_read_array(t_node_z **stack, t_map *map);
 void		mlx_open(t_data *data);
 void		map_draw(t_map *map, t_data *data);

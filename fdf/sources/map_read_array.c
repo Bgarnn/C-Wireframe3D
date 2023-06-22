@@ -12,10 +12,10 @@
 
 #include "fdf.h"
 
-static void	malloc_check(int *arr)
+static void	malloc_check(int *arr, t_map *map)
 {
 	if (!arr)
-		exit_error(READ_ARRAY_ERROR);
+		exit_error_free(READ_ARRAY_ERROR, map);
 }
 
 static int	update_max(int pop, int max)
@@ -46,9 +46,9 @@ void	map_read_array(t_node_z **stack, t_map *map)
 
 	size = (map->width * map->height) * sizeof(int);
 	map->z_arr = (int *)malloczero(size);
-	malloc_check(map->z_arr);
+	malloc_check(map->z_arr, map);
 	map->color_arr = (int *)malloczero(size);
-	malloc_check(map->color_arr);
+	malloc_check(map->color_arr, map);
 	i = (map->width * map->height) - 1;
 	while (i >= 0)
 	{

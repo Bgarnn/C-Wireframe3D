@@ -17,12 +17,12 @@ Welcome to FdF, a project that transforms elevation data into a captivating 3D w
 To compile the FdF program, follow these straightforward steps:
 
   - Clone the Repository:
-        - git clone git@github.com:Bgarnn/02-FdF.git
-        - cd 02-FdF
+    - git clone git@github.com:Bgarnn/02-FdF.git
+    - cd 02-FdF
   - Compile the Program:
-        - make: This will generate the fdf executable.
+    - make: This will generate the fdf executable.
   - Clean the Build:
-        - make clean: This removes the object files, leaving only the compiled program.
+    - make clean: This removes the object files, leaving only the compiled program.
 
 ** Now you can use FdF to create captivating 3D wireframe representations!
 
